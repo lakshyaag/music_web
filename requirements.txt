@@ -1,0 +1,7 @@
+cachetools==2.0.0
+Flask==0.12.2
+gunicorn==19.7.1
+Jinja2==2.9.6
+oauth2client==3.0.0
+requests==2.18.1
+spotipy==2.4.4
