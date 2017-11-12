@@ -6,4 +6,3 @@ CLIENT_SECRET = "680fd21219984948a49fb0bb89271d7d"
 
 token = util.oauth2.SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET).get_access_token()
 spotify = spotipy.Spotify(token)
-

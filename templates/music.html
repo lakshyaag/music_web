@@ -18,9 +18,10 @@
                 <h5>{{artist_name}}</h5>
             </div>
             <div class="row">
-                <a href={{url}} target="_blank">Listen on Spotify</a>
+                <iframe src="https://open.spotify.com/embed?uri=spotify:track:{{id}}"
+                        frameborder="0" allowtransparency="true" height="80"></iframe>
             </div>
-            <div class="row">
+            <div class="row center-align">
                 <h5>Popularity</h5>
                 <div class="progress">
                     <a class="btn tooltipped" data-tooltip={{popularity}}>
@@ -50,7 +51,7 @@
             <tr>
                 <td>{{loop.index}}</td>
                 <td>{{track.name}}</td>
-                <td><a href={{track.url}} target="_blank">Listen</a></td>
+                <td><a href={{track.url}} target="_blank"><i class="material-icons">play_arrow</i></a></td>
             </tr>
             {% endfor %}
             </tbody>
