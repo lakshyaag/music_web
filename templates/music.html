@@ -7,33 +7,43 @@
     </div>
 
     <div class="row">
-        <div class="col s12 m4 l4 item">
-            <img src="{{album_art}}" class="materialboxed hoverable responsive-img "/>
+        <div class="col s12 m4 l4 center-align materialboxed">
+            <img src="{{album_art}}" class="hoverable responsive-img"/>
             <h5 class="center-align">{{album_name}}</h5>
         </div>
 
-        <div class="col s12 m4 l4 center-align item">
+        <div class="col s12 m4 l4 center-align">
             <div class="row">
                 <h4>{{track_name}}</h4>
-                <h5>{{artist_name}}</h5>
+                <h5 class="tooltipped" data-html="true" data-tooltip="<img src = {{artist_image}} />">
+                    {{artist_name}}</h5>
             </div>
             <div class="row">
                 <iframe src="https://open.spotify.com/embed?uri=spotify:track:{{id}}"
                         frameborder="0" allowtransparency="true" height="80"></iframe>
             </div>
             <div class="row center-align">
-                <h5>Popularity</h5>
-                <div class="progress">
-                    <a class="btn tooltipped" data-tooltip={{popularity}}>
-                        <div class="determinate amber darken-4" style="width: {{popularity}}%">
-                        </div>
-                    </a>
-                </div>
+                <div id="progress1" class="tooltipped" data-tooltip="Popularity: {{popularity}}%"></div>
+                <script>
+                    $('#progress1').LineProgressbar({
+                        percentage: {{popularity}},
+                        ShowProgressCount: false,
+                        fillBackgroundColor: '#ffa000',
+                        radius: '5px',
+                    });
+                </script>
             </div>
         </div>
 
-        <div class="col s12 m4 l4 center-align item">
-            <img src="{{artist_image}}" class="hoverable responsive-img"/>
+        <div class="col s12 m4 l4 center-align">
+            <h5>Recommendations</h5>
+            {% for r in recommendations %}
+            <div class="col s6 m6 l6 center">
+                <a href={{r.url}} target="_blank"><img src={{r.album_art}} class="hoverable responsive-img tooltipped"
+                                                       data-html="true"
+                                                       data-tooltip="{{r.name}}<br/>{{r.album_name}}"></a>
+            </div>
+            {% endfor %}
         </div>
     </div>
     <div>

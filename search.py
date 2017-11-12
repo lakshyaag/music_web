@@ -7,11 +7,25 @@ def parse_data(result):
 
     for item in data:
 
+        track_id = item['id']
+
         artist_id = item['album']['artists'][0]['id']
         artist_details = spotify.artist(artist_id)
 
         album_tracks = spotify.album_tracks(item['album']['id'])
         album_track = []
+
+        album_recommendations = []
+
+        recommendations = spotify.recommendations(seed_tracks=["{}".format(track_id)], limit=4)
+        for r in recommendations['tracks']:
+            album_recommendations.append({
+                "album_art": r['album']['images'][0]['url'],
+                "album_name": r['album']['name'],
+                "name": r['name'],
+                "url": r['external_urls']['spotify']
+            })
+
         for tracks in album_tracks['items']:
             album_track.append({
                 "name": tracks['name'],
@@ -25,22 +39,21 @@ def parse_data(result):
 
         album = {
             "name": item['album']['name'],
-            "art": item['album']['images'][0]['url'],
-            "tracks": album_track
-
+            "art": item['album']['images'][1]['url'],
+            "tracks": album_track,
+            "recommendations": album_recommendations
         }
 
         track = {
             "name": item['name'],
             "url": item['external_urls']['spotify'],
             'popularity': item['popularity'],
-            "id": item['id']
+            "id": track_id
         }
-
     track_details = Song.Song(artist_name=artist['name'], artist_image=artist['image'],
                               album_name=album['name'], album_art=album['art'], album_tracks=album['tracks'],
                               track_name=track['name'], url=track['url'], popularity=track['popularity'],
-                              id=track['id'])
+                              id=track['id'], recommendations=album['recommendations'])
 
     return track_details
 
