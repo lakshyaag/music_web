@@ -1,4 +1,5 @@
 import Song
+import lyrics as get_lyrics
 from config import spotify
 
 
@@ -50,10 +51,13 @@ def parse_data(result):
             'popularity': item['popularity'],
             "id": track_id
         }
+
+        lyrics = get_lyrics.get_lyrics(track['name'], artist['name'])
+
     track_details = Song.Song(artist_name=artist['name'], artist_image=artist['image'],
                               album_name=album['name'], album_art=album['art'], album_tracks=album['tracks'],
                               track_name=track['name'], url=track['url'], popularity=track['popularity'],
-                              id=track['id'], recommendations=album['recommendations'])
+                              id=track['id'], recommendations=album['recommendations'], lyrics=lyrics)
 
     return track_details
 

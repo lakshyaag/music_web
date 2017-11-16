@@ -9,6 +9,10 @@ main {
     background-color: #f6f6f6;
 }
 
+.lyrics {
+    height: 15em;
+    overflow-y: scroll;
+}
 
 
 @font-face {

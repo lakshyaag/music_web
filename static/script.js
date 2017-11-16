@@ -10,4 +10,6 @@
 
          console.log('matchheight');
          $('.item').matchHeight();
+
+         Materialize.toast("Hover over elements for more details.", 4000)
      })

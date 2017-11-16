@@ -28,7 +28,7 @@
                     $('#progress1').LineProgressbar({
                         percentage: {{popularity}},
                         ShowProgressCount: false,
-                        fillBackgroundColor: '#ffa000',
+                        fillBackgroundColor: '#0277bd',
                         radius: '5px',
                     });
                 </script>
@@ -46,10 +46,31 @@
             {% endfor %}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col s12 m12 l12 center-align">
+            <div class="card light-blue darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title flow-text">Lyrics</span>
+                    <div class="lyrics">
+                        <p class="flow-text" style="white-space: pre-line">{{lyrics}}</p>
+                    </div>
+                    <div class="divider"></div>
+                    <br>
+                    <p>Lyrics powered by www.musixmatch.com. This Lyrics is NOT for Commercial use and only 30% of
+                        the
+                        lyrics
+                        are returned.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div>
         <table class="bordered highlight centered">
             <thead class="z-index-4">
-            <tr class="amber darken-2 white-text">
+            <tr class="light-blue darken-2 white-text">
                 <th>Track Number</th>
                 <th>Track Name</th>
                 <th>Listen on Spotify</th>

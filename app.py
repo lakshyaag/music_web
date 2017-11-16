@@ -20,7 +20,8 @@ def submit_data():
                            album_tracks=track_details.album_tracks, track_name=track_details.track_name,
                            popularity=track_details.popularity, url=track_details.url,
                            album_art=track_details.album_art, artist_image=track_details.artist_image,
-                           id=track_details.id, recommendations=track_details.recommendations)
+                           id=track_details.id, recommendations=track_details.recommendations,
+                           lyrics=track_details.lyrics)
 
 
 if __name__ == "__main__":

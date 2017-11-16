@@ -1,6 +1,6 @@
 class Song(object):
     def __init__(self, artist_name, album_name, popularity, track_name, album_art, artist_image, url, album_tracks, id,
-                 recommendations):
+                 recommendations, lyrics):
         self.artist_name = artist_name
         self.album_name = album_name
         self.popularity = popularity
@@ -11,3 +11,4 @@ class Song(object):
         self.album_tracks = album_tracks
         self.id = id
         self.recommendations = recommendations
+        self.lyrics = lyrics
